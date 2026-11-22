@@ -1,0 +1,15 @@
+## .NET derleme çıktıları
+bin/
+obj/
+
+## IDE
+.vs/
+.vscode/
+
+## Kullanıcıya özel dosyalar
+*.user
+
+## Gerçek secrets asla commit edilmemeli (biz zaten User Secrets kullanıyoruz,
+## bu dosyalar normalde oluşmaz ama önlem olarak)
+appsettings.Production.json
+appsettings.*.local.json
