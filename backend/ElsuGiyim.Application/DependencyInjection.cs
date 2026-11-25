@@ -1,3 +1,4 @@
+using ElsuGiyim.Application.Auth;
 using ElsuGiyim.Application.Categories;
 using ElsuGiyim.Application.Products;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ public static class DependencyInjection
     {
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<IAuthService, AuthService>();
         return services;
     }
 }

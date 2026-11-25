@@ -16,6 +16,9 @@ public interface IApplicationDbContext
     DbSet<ProductImage> ProductImages { get; }
     DbSet<ProductRelation> ProductRelations { get; }
     DbSet<InventoryMovement> InventoryMovements { get; }
+    DbSet<User> Users { get; }
+    DbSet<Role> Roles { get; }
+    DbSet<UserRole> UserRoles { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.11" />
     <!-- Microsoft.AspNetCore.OpenApi varsayılan olarak güvenlik açığı (GHSA-v5pm-xwqc-g5wc)
          içeren Microsoft.OpenApi 2.0.0'ı çekiyor. Yamalı sürümü burada açıkça belirtip
          geçersiz kılıyoruz. -->

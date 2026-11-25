@@ -1,4 +1,6 @@
+using ElsuGiyim.Application.Auth;
 using ElsuGiyim.Application.Common.Interfaces;
+using ElsuGiyim.Infrastructure.Auth;
 using ElsuGiyim.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,9 @@ public static class DependencyInjection
 
         services.AddScoped<IApplicationDbContext>(provider =>
             provider.GetRequiredService<ApplicationDbContext>());
+
+        services.AddSingleton<IPasswordHasher, PasswordHasher>();
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 
         return services;
     }

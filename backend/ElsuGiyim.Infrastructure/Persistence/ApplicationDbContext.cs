@@ -18,6 +18,9 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public DbSet<ProductImage> ProductImages => Set<ProductImage>();
     public DbSet<ProductRelation> ProductRelations => Set<ProductRelation>();
     public DbSet<InventoryMovement> InventoryMovements => Set<InventoryMovement>();
+    public DbSet<User> Users => Set<User>();
+    public DbSet<Role> Roles => Set<Role>();
+    public DbSet<UserRole> UserRoles => Set<UserRole>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

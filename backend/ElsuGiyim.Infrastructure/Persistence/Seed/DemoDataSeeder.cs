@@ -29,8 +29,38 @@ public static class DemoDataSeeder
     private static readonly Guid PSneaker = Guid.Parse("22222222-0000-0000-0000-000000000008");
     private static readonly Guid PMiniElbise = Guid.Parse("22222222-0000-0000-0000-000000000009");
 
+    // --- Roller ve kullanıcı ---
+    private static readonly Guid RoleAdminId = Guid.Parse("55555555-0000-0000-0000-000000000001");
+    private static readonly Guid RoleUrunYoneticisiId = Guid.Parse("55555555-0000-0000-0000-000000000002");
+    private static readonly Guid RoleSiparisYoneticisiId = Guid.Parse("55555555-0000-0000-0000-000000000003");
+    private static readonly Guid AdminUserId = Guid.Parse("66666666-0000-0000-0000-000000000001");
+
     public static void Seed(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Role>().HasData(
+            new Role { Id = RoleAdminId, Name = RoleNames.Admin, CreatedAtUtc = SeedDate },
+            new Role { Id = RoleUrunYoneticisiId, Name = RoleNames.UrunYoneticisi, CreatedAtUtc = SeedDate },
+            new Role { Id = RoleSiparisYoneticisiId, Name = RoleNames.SiparisYoneticisi, CreatedAtUtc = SeedDate }
+        );
+
+        modelBuilder.Entity<User>().HasData(
+            new User
+            {
+                Id = AdminUserId,
+                Email = "admin@elsugiyim.com",
+                FullName = "Mağaza Sahibi (Demo)",
+                // DEMO ŞİFRE: Elsu2026! — sabit salt ile önceden hesaplanmış hash.
+                // İlk girişten sonra MUTLAKA değiştirilmeli (Aşama 4'te "şifre
+                // değiştir" ekranı eklenecek).
+                PasswordHash = "210000.AAECAwQFBgcICQoLDA0ODw==.VMUd18nJtIldSv6u5JUCqVab5MaFcvk+Cu5FxnTXuzQ=",
+                CreatedAtUtc = SeedDate,
+            }
+        );
+
+        modelBuilder.Entity<UserRole>().HasData(
+            new UserRole { UserId = AdminUserId, RoleId = RoleAdminId }
+        );
+
         modelBuilder.Entity<Category>().HasData(
             new Category { Id = CatKadin, Name = "Kadın", Slug = "kadin", DisplayOrder = 1, CreatedAtUtc = SeedDate },
             new Category { Id = CatErkek, Name = "Erkek", Slug = "erkek", DisplayOrder = 2, CreatedAtUtc = SeedDate },

@@ -104,8 +104,8 @@ public class ProductService : IProductService
 
         try
         {
-           return (IReadOnlyList<SizeChartRowDto>?)JsonSerializer.Deserialize<List<SizeChartRowDto>>(sizeChartJson)
-    ?? Array.Empty<SizeChartRowDto>();
+            return (IReadOnlyList<SizeChartRowDto>?)JsonSerializer.Deserialize<List<SizeChartRowDto>>(sizeChartJson)
+                ?? Array.Empty<SizeChartRowDto>();
         }
         catch (JsonException)
         {
