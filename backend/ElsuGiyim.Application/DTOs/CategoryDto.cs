@@ -4,5 +4,7 @@ public record CategoryDto(
     Guid Id,
     string Name,
     string Slug,
-    int DisplayOrder
+    int DisplayOrder,
+    bool IsActive,
+    Guid? ParentCategoryId
 );
